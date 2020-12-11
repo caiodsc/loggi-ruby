@@ -2,11 +2,12 @@
 
 module Loggi
   class Shop
-    attr_accessor :pk, :name, :pickup_instructions, :address, :charge_options
+    attr_accessor :pk, :name, :pickup_instructions, :address, :charge_options, :payment_method
 
     def initialize(options)
       @pk = options[:pk]
       @name = options[:name]
+      @payment_method = options[:payment_method]
       @pickup_instructions = options[:pickupInstructions]
       @address = Address.new(options[:address]) if options[:address]
       return unless options[:chargeOptions].is_a?(Array)
